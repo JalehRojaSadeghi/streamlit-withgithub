@@ -31,15 +31,8 @@ def load_excel_from_github(url):
     response.raise_for_status()  # Check that the request was successful
     return pd.read_excel(BytesIO(response.content))
 
-# Title of the app
-st.title("Excel File Viewer with Filters")
-
 # Input URL for the Excel file in the GitHub repository
 url = st.text_input("https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FJalehRojaSadeghi%2Fstreamlit-withgithub%2Fmain%2FALL%2520local%2520authorities%2520pipeline.xlsx&wdOrigin=BROWSELINK")
-# Load the Excel file from the provided GitHub URL
 df = load_excel_from_github(url)
-
-# Display the dataframe
-st.write("Data from Excel file:")
 st.dataframe(df)
 
