@@ -22,7 +22,7 @@ if option == 'graph':
     st.image(image, use_column_width=True)
 
 import pandas as pd
-df = pd.read_excel("ALL local authorities pipeline")
+df = pd.read_excel("ALL local authorities pipeline.xlsx")
         
 # Display the dataframe
 st.write("Data from Excel file:")
