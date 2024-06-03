@@ -21,6 +21,28 @@ if option == 'graph':
     image = Image.open('ABM_graph.jpg')
     st.image(image, use_column_width=True)
 
+import streamlit as st
 import pandas as pd
-df = pd.read_excel("ALL local authorities pipeline.xlsx")
-st.dataframe(df)
+import requests
+from io import BytesIO
+
+# Function to load the Excel file from a GitHub URL
+def load_excel_from_github(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Check that the request was successful
+    return pd.read_excel(BytesIO(response.content))
+
+# Title of the app
+st.title("Excel File Viewer with Filters")
+
+# Input URL for the Excel file in the GitHub repository
+url = st.text_input("https://github.com/JalehRojaSadeghi/streamlit-withgithub/blob/main/ALL%20local%20authorities%20pipeline.xlsx")
+
+if url:
+    try:
+        # Load the Excel file from the provided GitHub URL
+        df = load_excel_from_github(url)
+        
+        # Display the dataframe
+        st.write("Data from Excel file:")
+        st.dataframe(df)
