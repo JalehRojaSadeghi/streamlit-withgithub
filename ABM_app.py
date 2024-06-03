@@ -40,7 +40,7 @@ url = st.text_input("https://view.officeapps.live.com/op/view.aspx?src=https%3A%
 ###
 
 df = pd.DataFrame({
-  'project ID': [01,02, 03, 04],
+  'project ID': [1,2,3,4],
   'size': [1,2,3,4], 'life span' : ["2024, 2026", "2026, 2031", "2025, 2026" , "2029, 2030"]
 })
 st.dataframe(df)
