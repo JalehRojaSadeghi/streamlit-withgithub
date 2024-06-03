@@ -44,3 +44,8 @@ df = pd.DataFrame({
   'size': [1,2,3,4], 'life span' : ["2024, 2026", "2026, 2031", "2025, 2026" , "2029, 2030"]
 })
 st.dataframe(df)
+option = st.selectbox(
+    'Which number do you like best?',
+     df['first column'])
+
+'You selected: ', option
