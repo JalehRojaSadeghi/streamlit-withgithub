@@ -23,7 +23,4 @@ if option == 'graph':
 
 import pandas as pd
 df = pd.read_excel("ALL local authorities pipeline.xlsx")
-        
-# Display the dataframe
-st.write("Data from Excel file:")
 st.dataframe(df)
