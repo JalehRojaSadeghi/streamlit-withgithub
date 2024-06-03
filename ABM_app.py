@@ -21,6 +21,8 @@ if option == 'graph':
     image = Image.open('ABM_graph.jpg')
     st.image(image, use_column_width=True)
 
+
+###
 import pandas as pd
 import requests
 from io import BytesIO
@@ -31,8 +33,13 @@ def load_excel_from_github(url):
     response.raise_for_status()  # Check that the request was successful
     return pd.read_excel(BytesIO(response.content))
 
-# Input URL for the Excel file in the GitHub repository
+# Input URL for the Excel file in the GitHub repository (raw file)
 url = st.text_input("https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FJalehRojaSadeghi%2Fstreamlit-withgithub%2Fmain%2FALL%2520local%2520authorities%2520pipeline.xlsx&wdOrigin=BROWSELINK")
 df = load_excel_from_github(url)
 st.dataframe(df)
+###
 
+st.dataframe(my_dataframe)
+st.table(data.iloc[0:10])
+st.json({"foo":"bar","fu":"ba"})
+st.metric("My metric", 42, 2)
